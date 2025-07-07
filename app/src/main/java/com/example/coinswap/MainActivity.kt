@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.Surface
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.coinswap.presentation.mainScreen.MainScreen
+import com.example.coinswap.navigation.AppNavigation
 import com.example.coinswap.presentation.mainScreen.MainScreenViewModel
 import com.example.coinswap.ui.theme.CoinSwapTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,13 +16,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CoinSwapTheme {
-                val viewModel: MainScreenViewModel = hiltViewModel()
-                Surface {
-                    MainScreen(
-                        state = viewModel.state,
-                        onEvent = viewModel::onEvent
-                    )
-                }
+
+                    AppNavigation()
+
             }
         }
     }
